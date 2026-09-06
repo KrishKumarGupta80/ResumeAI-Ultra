@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+venv/
+env/
+uploads/
+*.pdf
+*.docx
+.env

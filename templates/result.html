@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ResumeAI Ultra Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="nav">
+    <div class="logo">ResumeAI Ultra</div>
+
+    <div>
+        <a href="/" style="color:white;text-decoration:none;margin-right:20px;">Home</a>
+        <a href="/upload" style="color:white;text-decoration:none;">Analyze</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <h1 class="title">
+        AI Resume Intelligence Dashboard
+    </h1>
+
+    <!-- ATS HERO -->
+
+    <div class="glass card center">
+
+        <div class="big-score">
+            {{ score }}%
+        </div>
+
+        <h3>ATS Match Score</h3>
+
+        <div class="bar">
+            <div class="fill" data-score="{{ score }}"></div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- METRICS -->
+
+    <div class="grid">
+
+        <div class="glass card">
+            <h3>Matched Skills</h3>
+            <h1>{{ matched_count }}</h1>
+        </div>
+
+        <div class="glass card">
+            <h3>Missing Skills</h3>
+            <h1>{{ missing_count }}</h1>
+        </div>
+
+        <div class="glass card">
+            <h3>Resume Rank</h3>
+            <h1>{{ rank }}</h1>
+        </div>
+
+        <div class="glass card">
+            <h3>Readiness</h3>
+            <h1>{{ readiness }}</h1>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- SKILLS -->
+
+    <div class="grid">
+
+        <div class="glass card">
+
+            <h2 style="color:#22c55e;">
+                Matched Skills
+            </h2>
+
+            <div class="tags">
+
+                {% for s in matched %}
+                    <span class="tag green-tag">
+                        {{ s }}
+                    </span>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        <div class="glass card">
+
+            <h2 style="color:#ef4444;">
+                Missing Skills
+            </h2>
+
+            <div class="tags">
+
+                {% for s in missing %}
+                    <span class="tag red-tag">
+                        {{ s }}
+                    </span>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- RECRUITER VERDICT -->
+
+    <div class="glass card">
+
+        <h2>
+            Recruiter Verdict
+        </h2>
+
+        <h1 style="color:#38bdf8;">
+            {{ verdict }}
+        </h1>
+
+    </div>
+
+    <br>
+
+    <!-- AI INSIGHT -->
+
+    <div class="glass card">
+
+        <h2>
+            AI Career Insight
+        </h2>
+
+        <p>
+            {{ insight }}
+        </p>
+
+    </div>
+
+    <br>
+
+    <!-- ROADMAP -->
+
+    <div class="glass card">
+
+        <h2>
+            Improvement Roadmap
+        </h2>
+
+        <ul style="text-align:left;max-width:700px;margin:auto;">
+
+            {% for skill in missing %}
+                <li style="margin-bottom:10px;">
+                    Add <b>{{ skill }}</b> through projects,
+                    certifications, internships or coursework.
+                </li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <br>
+
+    <a href="/upload">
+        <button>
+            Analyze Another Resume
+        </button>
+    </a>
+
+    <br><br>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+ 

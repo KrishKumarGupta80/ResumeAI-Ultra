@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Upload Resume | ResumeAI Ultra</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="nav">
+
+    <div class="logo">
+        ResumeAI Ultra
+    </div>
+
+    <div>
+        <a href="/" style="color:white;text-decoration:none;margin-right:20px;">
+            Home
+        </a>
+
+        <a href="/upload" style="color:white;text-decoration:none;">
+            Analyze
+        </a>
+    </div>
+
+</div>
+
+
+<!-- UPLOAD SECTION -->
+
+<div class="container">
+
+    <h1 class="title">
+        Analyze Your Resume With AI
+    </h1>
+
+    <p style="
+        color:#cbd5e1;
+        max-width:650px;
+        margin:auto;
+        font-size:17px;
+    ">
+        Upload your resume and compare it with a job description.
+        Get ATS score, matched skills, missing skills and AI career insights.
+    </p>
+
+
+    <br><br>
+
+
+    <div class="glass card" style="
+        width:450px;
+        max-width:90%;
+        margin:auto;
+        text-align:left;
+        padding:35px;
+    ">
+
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+
+            <label>
+                📄 Upload Resume (PDF)
+            </label>
+
+
+            <input 
+                type="file" 
+                name="resume"
+                accept=".pdf"
+                required
+            >
+
+
+
+            <br><br>
+
+
+            <label>
+                💼 Paste Job Description
+            </label>
+
+
+            <textarea
+                name="jobdesc"
+                rows="8"
+                placeholder="Example: Looking for Python Developer with Flask, SQL, Machine Learning skills..."
+                required
+            ></textarea>
+
+
+
+            <br><br>
+
+
+            <button type="submit" style="width:100%;">
+                🚀 Analyze Resume
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+<footer style="
+text-align:center;
+margin-top:60px;
+color:#64748b;
+">
+ResumeAI Ultra © 2026
+</footer>
+
+
+</body>
+
+</html>
